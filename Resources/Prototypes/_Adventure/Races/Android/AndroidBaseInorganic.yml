@@ -44,6 +44,9 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    #- map: [ "module1" ]
+    #- map: [ "module2" ]
+    #- map: [ "module3" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -191,11 +194,10 @@
     attributes:
       proper: true
   - type: MobPrice
-    price: 1500 
-    deathPenalty: 0.01 
+    price: 2775000
+    deathPenalty: 0
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - AnomalyHost

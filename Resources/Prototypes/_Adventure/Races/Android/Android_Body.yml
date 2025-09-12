@@ -2,7 +2,7 @@
   id: OrganAndroidBrain
   parent: OrganHumanBrain
   name: мозг Андроида
-  description: Источник невероятного, бесконечного интеллекта.
+  description: Высокотехнологичный мозг, хранит в себе большое количество информации, корректирует работу тела и обрабатывает большое количество запросов одновременно.
   components:
   - type: Sprite
     sprite: _Adventure/Races/androids/Mobs/Species/Android/organs.rsi
@@ -12,7 +12,7 @@
   id: OrganAndroidHeart
   parent: OrganHumanHeart
   name: сердце Андроида
-  description: Мне жаль бессердечного ублюдка, который потерял это.
+  description: Высокотехнологичное сердце, можно лишь предположить, как оно работает.
   components:
   - type: Sprite
     sprite: _Adventure/Races/androids/Mobs/Species/Android/organs.rsi
@@ -72,7 +72,7 @@
       bodypart: !type:Container
         ents: []
   - type: StaticPrice
-    price: 500
+    price: 0
   - type: Tag
     tags:
       - Trash

@@ -42,3 +42,8 @@
   id: Insect
   name: Серпентид
   text: "/ServerInfo/_Adventure/Guidebook/Races/Insect.xml"
+
+- type: guideEntry
+  id: Android
+  name: Андроид
+  text: "/ServerInfo/_Adventure/Guidebook/Races/Android.xml"

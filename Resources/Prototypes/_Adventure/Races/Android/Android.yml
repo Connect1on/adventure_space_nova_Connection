@@ -1,3 +1,12 @@
+#Андроидный
+- type: radioChannel
+  id: Android
+  name: Андроидный
+  keycode: 'а'
+  frequency: 123
+  color: "#00bfff"
+  longRange: true
+
 - type: entity
   save: false
   name: Урист макАндроид
@@ -20,6 +29,7 @@
   #- BaseMobSpeciesOrganic
   id: BaseMobAndroid
   components:
+  - type: DamagedSiliconAccent
   - type: BodyEmotes
     soundsId: SynthBodyEmotes
   - type: Reactive
@@ -27,19 +37,6 @@
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
     reactions:
-    - reagents: [ SpaceLube ]
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        damage:
-          types:
-            Cold: -2
-      - !type:PopupMessage
-        type: Local
-        visualType: Large
-        messages: [ "Обледенение отпадает от вашего корпуса" ]
-        probability: 0.25
     - reagents: [ TereumAndroid ]
       methods: [ Touch ]
       effects:
@@ -48,6 +45,11 @@
         damage:
           groups:
             Brute: -1.5
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "Полимер впитывает жидкость, начиная конструировать оболочку" ]
+        probability: 1
     - reagents: [ ActiveTereumAndroid ]
       methods: [ Touch ]
       effects:
@@ -55,9 +57,14 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: -0.75
-            Shock: -0.75
-            Cold: -0.75
+            Heat: -0.6
+            Shock: -0.5
+            Cold: -0.35
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "Полимер впитывает жидкость, начиная восстановление" ]
+        probability: 1
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -70,8 +77,8 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.60
-        Heat: 0.2
+        Shock: 0.80
+    maxDamage: 140
   - type: Temperature
     heatDamageThreshold: 773.15
     coldDamageThreshold: 173
@@ -91,9 +98,10 @@
         Heat: 0.75
   - type: TemperatureSpeed
     thresholds:
-      233: 0.8
-      228: 0.6
-      225: 0.4
+      258: 0.95
+      233: 0.9
+      193: 0.85
+      123: 0.7
   - type: StatusEffects
     allowed:
       - Stun
@@ -129,9 +137,9 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 6
+        Blunt: 7
   - type: Bloodstream
-    bloodMaxVolume: 250 # на 150 больше
+    bloodMaxVolume: 400 #250
     bloodReagent: TereumAndroid
     bloodRefreshAmount: 0
     chemicalMaxVolume: 0
@@ -152,20 +160,19 @@
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#8a8a9e"
   - type: MobState
-  - type: MobStateActions
-    actions:
-      Critical:
-      - ActionCritSuccumb
-      - ActionCritFakeDeath
-      - ActionCritLastWords
+ ## - type: MobStateActions
+ ##   actions:
+ ##     Critical:
+ ##     - ActionCritSuccumb
+ ##     - ActionCritFakeDeath
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      ##100: Critical
       175: Dead
     stateAlertDict:
       Alive: BorgHealth
-      Critical: BorgCrit
+      ##Critical: BorgCrit
       Dead: BorgDead
     showOverlays: true
     allowRevives: true
@@ -182,7 +189,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 850
       behaviors:
       - !type:GibBehavior { }
       - !type:PlaySoundBehavior
@@ -190,12 +197,13 @@
           collection: MetalSlam
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.9
-      80: 0.7
-      100: 0.5
-      120: 0.3
-      140: 0.2
-      160: 0.1
+      40: 0.9
+      60: 0.8
+      80: 0.6
+      100: 0.3
+      120: 0.2
+      140: 0.1
+      150: 0
   - type: Speech
     speechSounds: Alto
     speechVerb: Default
@@ -210,12 +218,18 @@
   - type: TypingIndicator
     proto: robot
   - type: Repairable
-    doAfterDelay: 5
-    damage:
-      types:
-        Slash: -8
-        Piercing: -8
+    doAfterDelay: 2
+    bloodlossModifier: -10
     allowSelfRepair: true
+  - type: IntrinsicRadioReceiver
+    channels:
+      - Android
+  - type: IntrinsicRadioTransmitter
+    channels:
+      - Android
+  - type: ActiveRadio
+    channels:
+      - Android
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:

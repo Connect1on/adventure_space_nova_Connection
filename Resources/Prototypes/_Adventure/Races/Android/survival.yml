@@ -1,0 +1,17 @@
+# Species
+- type: loadoutEffectGroup
+  id: AndroidNoBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Android
+    
+# Basic
+- type: loadout
+  id: EmergencyAndroid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AndroidNoBreather
+  storage:
+    back:
+    - BoxSurvivalAndroid

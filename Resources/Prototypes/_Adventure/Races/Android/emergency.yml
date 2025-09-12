@@ -1,0 +1,17 @@
+- type: entity
+  parent: BoxCardboard
+  id: BoxSurvivalAndroid
+  name: коробка выживания андроидов
+  description: Коробка, с содержимым внутри
+  suffix: genesis_dynamics
+  components:
+  - type: StorageFill
+    contents:
+    - id: CauterizerAndroid
+    - id: Tereumpack
+    - id: Toolpack
+    - id: Nanopack
+    - id: Flare
+  - type: Sprite
+    layers:
+    - state: box_android

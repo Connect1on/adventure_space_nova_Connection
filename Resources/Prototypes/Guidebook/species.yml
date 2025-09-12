@@ -21,6 +21,7 @@
     - Drask # Adventure
     - Plasman # Adventure
     - Insect # Adventure
+    - Android # Adventure
 
 - type: guideEntry
   id: Arachnid

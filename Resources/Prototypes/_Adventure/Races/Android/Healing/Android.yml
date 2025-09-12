@@ -13,6 +13,113 @@
   - type: StaticPrice
     price: 0
 
+- type: stack
+  id: ExtraAndroidPack
+  name: extraandroidpack
+  icon: { sprite: "_Adventure/Races/androids/Objects/Specific/Medical/medical.rsi", state: emergencyandroid }
+  spawn: ExtraAndroidPack
+  maxCount: 4
+
+- type: stack
+  id: Nanopack
+  name: nanopack
+  icon: { sprite: "_Adventure/Races/androids/Objects/Specific/Medical/medical.rsi", state: nanopack }
+  spawn: Nanopack
+  maxCount: 10
+
+- type: stack
+  id: Tereumpack
+  name: tereumpack
+  icon: { sprite: "_Adventure/Races/androids/Objects/Specific/Medical/medical.rsi", state: tereumpack }
+  spawn: Tereumpack
+  maxCount: 10
+
+- type: stack
+  id: Toolpack
+  name: toolpack
+  icon: { sprite: "_Adventure/Races/androids/Objects/Specific/Medical/medical.rsi", state: toolpack }
+  spawn: Toolpack
+  maxCount: 10
+
+- type: stack
+  id: CauterizerAndroid
+  name: cauterizer
+  icon: { sprite: "_Adventure/Races/androids/Objects/Specific/Medical/medical.rsi", state: cauterizer }
+  spawn: CauterizerAndroid
+  maxCount: 5
+
+- type: entity
+  name: Прижигатель
+  description: Прижигатель для андроидов, позволяющий быстро приварить рану.
+  parent: BaseHealingItemAndroid
+  id: CauterizerAndroid
+  suffix: Genesis_Dynamics
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Sprite
+    state: cauterizer
+  - type: Healing
+    damageContainers:
+      - Android
+    damage:
+      types:
+        Slash: -3
+        Piercing: -3
+    bloodlossModifier: -10
+    delay: 2
+    healingBeginSound:
+      path: "/Audio/Adventure/Weapon/Melee/fuelswords/welderactivate.ogg"
+      params:
+        volume: -5
+    healingEndSound:
+      path: "/Audio/Adventure/Weapon/Melee/fuelswords/welderdeactivate.ogg"
+      params:
+        variation: 0.250
+        volume: -5
+  - type: Stack
+    stackType: CauterizerAndroid
+    count: 5
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  name: экстренный набор восстановления андройдов
+  description: Экстренный набор содержащий мульти-инструмент с баком тереума, для быстрой починки андроида.
+  parent: BaseHealingItemAndroid
+  id: ExtraAndroidPack
+  suffix: Genesis_Dynamics
+  components:
+  - type: Tag
+    tags:
+    - Brutepack
+  - type: Sprite
+    state: emergencyandroid
+  - type: Healing
+    damageContainers:
+      - Android
+    damage:
+      groups:
+        Brute: -45
+      types:
+        Heat: -15
+        Cold: -15
+        Shock: -15
+        Bloodloss: -15
+    ModifyBloodLevel: 30
+    bloodlossModifier: -4
+    delay: 1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: ExtraAndroidPack
+    count: 4
+  - type: StackPrice
+    price: 5
+
 - type: entity
   name: Нано Набор
   description: Набор содержающий иструментальный аналог, излечивающий Андроида.
