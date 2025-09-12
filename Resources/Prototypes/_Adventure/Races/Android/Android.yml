@@ -1,12 +1,3 @@
-#Андроидный
-- type: radioChannel
-  id: Android
-  name: Андроидный
-  keycode: 'а'
-  frequency: 123
-  color: "#00bfff"
-  longRange: true
-
 - type: entity
   save: false
   name: Урист макАндроид
@@ -223,13 +214,13 @@
     allowSelfRepair: true
   - type: IntrinsicRadioReceiver
     channels:
-      - Android
+      - Trio
   - type: IntrinsicRadioTransmitter
     channels:
-      - Android
+      - Trio
   - type: ActiveRadio
     channels:
-      - Android
+      - Trio
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
