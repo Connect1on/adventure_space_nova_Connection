@@ -70,11 +70,11 @@
     bloodlossModifier: -10
     delay: 2
     healingBeginSound:
-      path: "/Audio/Adventure/Weapon/Melee/fuelswords/welderactivate.ogg"
+      path: "/Audio/_Adventure/Weapon/Melee/fuelswords/welderactivate.ogg"
       params:
         volume: -5
     healingEndSound:
-      path: "/Audio/Adventure/Weapon/Melee/fuelswords/welderdeactivate.ogg"
+      path: "/Audio/_Adventure/Weapon/Melee/fuelswords/welderdeactivate.ogg"
       params:
         variation: 0.250
         volume: -5
