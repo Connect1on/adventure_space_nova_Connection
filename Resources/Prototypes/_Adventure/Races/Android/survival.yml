@@ -5,7 +5,7 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Android
-    
+
 # Basic
 - type: loadout
   id: EmergencyAndroid
